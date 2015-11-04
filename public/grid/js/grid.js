@@ -41,17 +41,13 @@
                  })
                  if (foundDataset) {
                      var gridData = {
-                         free: foundDataset["Data is freely available online"],
+                         online: foundDataset["Available online"],
 
-                         machine: foundDataset["Data is machine readable"],
-
-                         context: foundDataset["Context is provided"],
+                         machine: foundDataset["Machine readable"],
 
                          bulk: foundDataset["Available in bulk"],
 
                          fresh: foundDataset["Up-to-date"],
-
-                         incident: foundDataset["Incident-level data"],
 
                          datasetHref: URI().filename("datasets.html").search({
                              "department": row["department"],
@@ -59,21 +55,17 @@
                          })
                      }
 
-                     gridData.freeCaption = captions.free[gridData.free];
+                     gridData.onlineCaption = captions.online[gridData.online];
                      gridData.machineCaption = captions.machine[gridData.machine];
-                     gridData.contextCaption = captions.context[gridData.context];
                      gridData.bulkCaption = captions.bulk[gridData.bulk];
                      gridData.freshCaption = captions.fresh[gridData.fresh];
-                     gridData.incidentCaption = captions.incident[gridData.incident];
                      row["datasets"].push(gridData).toString()
                  } else {
                      row["datasets"].push({
-                         free: "DNE",
+                         online: "DNE",
                          machine: "DNE",
-                         context: "DNE",
                          bulk: "DNE",
                          fresh: "DNE",
-                         incident: "DNE",
                          datasetHref: "http://goo.gl/forms/WdJHdBmVLQ"
                      });
                  }
