@@ -38,17 +38,26 @@
                  });
         })
          .map(function(row) {
+          
+           row.exists = row["Exists in some form"];
+           row.online = row["Available online"];
+           row.machine = row["Machine readable"];
+           row.bulk = row["Available in bulk"];
+           row.openLicense = row["Open license"];
+           row.fresh = row["Up-to-date"];
+           row.inRepo = row["In the repository"];
+           row.verifiable = row["Verifiable"];
+           row.complete = row["Complete"];
 
-            row.online = row["Available online"];
-            row.machine = row["Machine readable"];
-            row.bulk = row["Available in bulk"];
-            row.fresh = row["Up-to-date"];
-                 
-
-             row.onlineCaption = captions.online[row.online];
-             row.machineCaption = captions.machine[row.machine];
-             row.bulkCaption = captions.bulk[row.bulk];
-             row.freshCaption = captions.fresh[row.fresh];
+           row.existsCaption = captions.exists[row.exists];
+           row.onlineCaption = captions.online[row.online];
+           row.machineCaption = captions.machine[row.machine];
+           row.bulkCaption = captions.bulk[row.bulk];
+           row.openLicenseCaption = captions.openLicense[row.openLicense];
+           row.freshCaption = captions.fresh[row.fresh];
+           row.inRepoCaption = captions.inRepo[row.inRepo];
+           row.verifiableCaption = captions.verifiable[row.verifiable];
+           row.completeCaption = captions.complete[row.complete];
 
              var html = template(row);
             $("#cards").append(html);

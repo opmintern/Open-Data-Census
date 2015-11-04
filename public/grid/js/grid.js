@@ -41,13 +41,23 @@
                  })
                  if (foundDataset) {
                      var gridData = {
+                         exists: foundDataset["Exists],
+
                          online: foundDataset["Available online"],
 
                          machine: foundDataset["Machine readable"],
 
                          bulk: foundDataset["Available in bulk"],
 
+                         openLicense: foundDataset["No restrictions"],
+
                          fresh: foundDataset["Up-to-date"],
+
+                         inRepo: foundDataset["In the state repository"],
+
+                         verifiable: foundDataset["Verifiable"],
+
+                         complete: foundDataset["Complete"],
 
                          datasetHref: URI().filename("datasets.html").search({
                              "department": row["department"],
@@ -55,17 +65,27 @@
                          })
                      }
 
+                     gridData.existsCaption = captions.exists[gridData.exists]; 
                      gridData.onlineCaption = captions.online[gridData.online];
                      gridData.machineCaption = captions.machine[gridData.machine];
                      gridData.bulkCaption = captions.bulk[gridData.bulk];
+                     gridData.openLicenseCaption = captions.openLicense[gridData.openLicense];
                      gridData.freshCaption = captions.fresh[gridData.fresh];
+                     gridData.inRepoCaption = captions.inRepo[gridData.inRepo];
+                     gridData.verifiableCaption = captions.verifiable[gridData.verifiable];
+                     gridData.completeCaption = captions.complete[gridData.complete];
                      row["datasets"].push(gridData).toString()
                  } else {
                      row["datasets"].push({
+                         exists: "DNE",
                          online: "DNE",
                          machine: "DNE",
                          bulk: "DNE",
+                         openLicense: "DNE",
                          fresh: "DNE",
+                         inRepo: "DNE",
+                         verifiable: "DNE",
+                         complete: "DNE",
                          datasetHref: "http://goo.gl/forms/WdJHdBmVLQ"
                      });
                  }

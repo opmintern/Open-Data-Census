@@ -72,12 +72,15 @@
         <td>
           <a href="{{datasetHref}}">
             <ul class="datapoles">
-              <li class="datapole {{free}}" data-toggle="tooltip" title="{{freeCaption}}"></li>
+              <li class="datapole {{exists}}" data-toggle="tooltip" title="{{existsCaption}}"></li>
+              <li class="datapole {{online}}" data-toggle="tooltip" title="{{freeCaption}}"></li>
               <li class="datapole {{machine}}" data-toggle="tooltip" title="{{machineCaption}}"></li>
-              <li class="datapole {{context}}" data-toggle="tooltip" title="{{contextCaption}}"></li>
               <li class="datapole {{bulk}}" data-toggle="tooltip" title="{{bulkCaption}}"></li>
+              <li class="datapole {{openLicense}}" data-toggle="tooltip" title="{{openLicenseCaption}}"></li>
               <li class="datapole {{fresh}}" data-toggle="tooltip" title="{{freshCaption}}"></li>
-              <li class="datapole {{incident}}" data-toggle="tooltip" title="{{incidentCaption}}"></li>
+              <li class="datapole {{inRepo}}" data-toggle="tooltip" title="{{inRepoCaption}}"></li>
+              <li class="datapole {{verifiable}}" data-toggle="tooltip" title="{{verifiableCaption}}"></li>
+              <li class="datapole {{complete}}" data-toggle="tooltip" title="{{completeCaption}}"></li>
             </ul>
           </a>
         </td> {{/each}} </tr>
