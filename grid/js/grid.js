@@ -41,17 +41,23 @@
                  })
                  if (foundDataset) {
                      var gridData = {
-                         free: foundDataset["Data is freely available online"],
+                         exists: foundDataset["Exists],
 
-                         machine: foundDataset["Data is machine readable"],
+                         online: foundDataset["Available online"],
 
-                         context: foundDataset["Context is provided"],
+                         machine: foundDataset["Machine readable"],
 
                          bulk: foundDataset["Available in bulk"],
 
+                         openLicense: foundDataset["No restrictions"],
+
                          fresh: foundDataset["Up-to-date"],
 
-                         incident: foundDataset["Incident-level data"],
+                         inRepo: foundDataset["In the state repository"],
+
+                         verifiable: foundDataset["Verifiable"],
+
+                         complete: foundDataset["Complete"],
 
                          datasetHref: URI().filename("datasets.html").search({
                              "department": row["department"],
@@ -59,21 +65,27 @@
                          })
                      }
 
-                     gridData.freeCaption = captions.free[gridData.free];
+                     gridData.existsCaption = captions.exists[gridData.exists]; 
+                     gridData.onlineCaption = captions.online[gridData.online];
                      gridData.machineCaption = captions.machine[gridData.machine];
-                     gridData.contextCaption = captions.context[gridData.context];
                      gridData.bulkCaption = captions.bulk[gridData.bulk];
+                     gridData.openLicenseCaption = captions.openLicense[gridData.openLicense];
                      gridData.freshCaption = captions.fresh[gridData.fresh];
-                     gridData.incidentCaption = captions.incident[gridData.incident];
+                     gridData.inRepoCaption = captions.inRepo[gridData.inRepo];
+                     gridData.verifiableCaption = captions.verifiable[gridData.verifiable];
+                     gridData.completeCaption = captions.complete[gridData.complete];
                      row["datasets"].push(gridData).toString()
                  } else {
                      row["datasets"].push({
-                         free: "DNE",
+                         exists: "DNE",
+                         online: "DNE",
                          machine: "DNE",
-                         context: "DNE",
                          bulk: "DNE",
+                         openLicense: "DNE",
                          fresh: "DNE",
-                         incident: "DNE",
+                         inRepo: "DNE",
+                         verifiable: "DNE",
+                         complete: "DNE",
                          datasetHref: "http://goo.gl/forms/WdJHdBmVLQ"
                      });
                  }

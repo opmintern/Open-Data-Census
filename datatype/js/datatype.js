@@ -46,35 +46,25 @@ function updateCards(rows, filters) {
                 return filter(row);
             });
         }).map(function(row) {
-          row.free = row["Data is freely available online"];
-          row.machine = row["Data is machine readable"];
-          row.context = row["Context is provided"];
+          row.exists = row["Exists in some form"];
+          row.online = row["Available online"];
+          row.machine = row["Machine readable"];
           row.bulk = row["Available in bulk"];
+          row.openLicense = row["Open license"];
           row.fresh = row["Up-to-date"];
-          row.incident = row["Incident-level data"];
+          row.inRepo = row["In the repository"];
+          row.verifiable = row["Verifiable"];
+          row.complete = row["Complete"];
 
-
-           row.freeCaption = captions.free[row.free];
+           row.existsCaption = captions.exists[row.exists];
+           row.onlineCaption = captions.online[row.online];
            row.machineCaption = captions.machine[row.machine];
-           row.contextCaption = captions.context[row.context];
            row.bulkCaption = captions.bulk[row.bulk];
+           row.openLicenseCaption = captions.openLicense[row.openLicense];
            row.freshCaption = captions.fresh[row.fresh];
-           row.incidentCaption = captions.incident[row.incident];
-
-            row.free = row["Data is freely available online"];
-            row.machine = row["Data is machine readable"];
-            row.context = row["Context is provided"];
-            row.bulk = row["Available in bulk"];
-            row.fresh = row["Up-to-date"];
-            row.incident = row["Incident-level data"];
-                 
-
-             row.freeCaption = captions.free[row.free];
-             row.machineCaption = captions.machine[row.machine];
-             row.contextCaption = captions.context[row.context];
-             row.bulkCaption = captions.bulk[row.bulk];
-             row.freshCaption = captions.fresh[row.fresh];
-             row.incidentCaption = captions.incident[row.incident];
+           row.inRepoCaption = captions.inRepo[row.inRepo];
+           row.verifiableCaption = captions.verifiable[row.verifiable];
+           row.completeCaption = captions.complete[row.complete];
 
             var html = template(row);
             $("#cards").append(html);
