@@ -123,25 +123,25 @@ gulp.task('buildProd', ['bower'], function() {
     var bowerJs = gulp.src(lib.ext('js').files)
         .pipe(concat('lib.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('PoliceOpenDataCensus/common/js'));
+        .pipe(gulp.dest('Open-Data-Census/common/js'));
 
     var bowerCss = gulp.src(lib.ext('css').files)
         .pipe(concat('lib.min.css'))
-        .pipe(gulp.dest('PoliceOpenDataCensus/common/css'));
+        .pipe(gulp.dest('Open-Data-Census/common/css'));
 
     var bowerWoff = gulp.src(lib.ext('woff').files)
-        .pipe(gulp.dest('PoliceOpenDataCensus/common/fonts'));
+        .pipe(gulp.dest('Open-Data-Census/common/fonts'));
 
     var commonCss = gulp.src('./public/common/css/**.css')
-        .pipe(gulp.dest('PoliceOpenDataCensus/common/css'));
+        .pipe(gulp.dest('Open-Data-Census/common/css'));
 
     var commonJs = gulp.src('./public/common/js/**.js')
         .pipe(concat('common.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('PoliceOpenDataCensus/common/js'));
+        .pipe(gulp.dest('Open-Data-Census/common/js'));
 
     gulp.src('./public/common/favicon.ico')
-      .pipe(gulp.dest('PoliceOpenDataCensus/'));
+      .pipe(gulp.dest('Open-Data-Census/'));
 
     return merge(underscore.map(modules, function(module) {
         var target = gulp.src('./public/' + module + '/*.html');
@@ -149,15 +149,15 @@ gulp.task('buildProd', ['bower'], function() {
         var customJs = gulp.src('./public/' + module + '/js/**.js')
             .pipe(concat('app.min.js'))
             .pipe(uglify())
-            .pipe(gulp.dest('PoliceOpenDataCensus/' + module + '/js'));
+            .pipe(gulp.dest('Open-Data-Census/' + module + '/js'));
 
         var customCss = gulp.src('./public/' + module + '/css/**.css')
             .pipe(concat('app.min.css'))
-            .pipe(gulp.dest('PoliceOpenDataCensus/' + module + '/css'));
+            .pipe(gulp.dest('Open-Data-Census/' + module + '/css'));
 
 
         var images = gulp.src('./public/' + module + '/img/**.*')
-            .pipe(gulp.dest('PoliceOpenDataCensus/' + module + '/img'));
+            .pipe(gulp.dest('Open-Data-Census/' + module + '/img'));
 
 
         return merge([target.pipe(inject(series(bowerJs, commonJs, customJs)))
@@ -179,7 +179,7 @@ gulp.task('buildProd', ['bower'], function() {
                 }
               }
             ))
-            .pipe(gulp.dest('PoliceOpenDataCensus/'))
+            .pipe(gulp.dest('Open-Data-Census/'))
             .pipe(connect.reload()), images])
     }));
 
@@ -189,12 +189,12 @@ gulp.task('cleanPublish', function() {
   return del.sync(['.publish/']);
 });
 gulp.task('gh-pages', ["buildProd", "cleanPublish"], function() {
-  return gulp.src('./PoliceOpenDataCensus/**/*')
+  return gulp.src('./Open-Data-Census/**/*')
     .pipe(ghPages());
 });
 
 gulp.task('deploy', ["gh-pages"], function() {
-  return del.sync(['PoliceOpenDataCensus/']);
+  return del.sync(['Open-Data-Census/']);
 });
 
 var toFileName = function (filePath){
@@ -203,31 +203,7 @@ var toFileName = function (filePath){
 
 gulp.task('readme', function() {
   betterConsole.clear()
-  console.log("Part of:");
-  console.log("___  ____ ____  _ ____ ____ ___    ____ ____ _  _ ___  ____ ____ ___");
-  console.log("|__] |__/ |  |  | |___ |     |     |    |  | |\\/| |__] |  | |__/  | ");
-  console.log("|    |  \\ |__| _| |___ |___  |     |___ |__| |  | |    |__| |  \\  | ");
-  console.log();
-  console.log();
-  console.log("From:")
-  console.log("____ ____ ___  ____    ____ ____ ____    ____ _  _ ____ ____ _ ____ ____")
-  console.log("|    |  | |  \\ |___    |___ |  | |__/    |__| |\\/| |___ |__/ | |    |__|")
-  console.log("|___ |__| |__/ |___    |    |__| |  \\    |  | |  | |___ |  \\ | |___ |  |")
-  console.log();
-  console.log("                        / ::::=======    / \\                            ".blue);
-  console.log("                       /  ::::=======   /   \\                           ".blue);
-  console.log("                       \\  ===========  /    /                           ".blue);
-  console.log("                        \\ =========== /    /                            ".blue);
-  console.log();;
-  console.log("And:");
-  console.log("___ ____ ____ _  _    _ _  _ ___  _   _");
-  console.log(" |  |___ |__| |\\/|    | |\\ | |  \\  \\_/");
-  console.log(" |  |___ |  | |  |    | | \\| |__/   |");
-  console.log();
   console.log("______________________________________________".red);
-  console.log(" _____   _____         _____ _______ _______".red);
-  console.log("|_____] |     | |        |   |       |______".red);
-  console.log("|       |_____| |_____ __|__ |_____  |______".red);
   console.log(" _____   _____  _______ __   _".white);
   console.log("|     | |_____] |______ | \\  |".white);
   console.log("|_____| |       |______ |  \\_|".white);
@@ -240,16 +216,11 @@ gulp.task('readme', function() {
   console.log("______________________________________________".blue);
   console.log();
   console.log();
-  console.log("WHAT:");
-  console.log("The Police Open Data Census is an attempt to catalog open police accountibilty,");
-  console.log("oversight and transparency datasets available to the public.");
-  console.log();
-  console.log("HOW:");
   console.log("The Census is built on a Google Spreadsheet integration though tabletop.js.");
   console.log("Feedback and suggested additions to the current data are more than welcome");
-  console.log("at" + " indy@codeforamerica.org".red + " and/or our google form" + " bit.ly/1KMFbxZ".red)
+  console.log("at" + " contact@usopendata.org".red + " and/or our google form" + " bit.ly/1KMFbxZ".red)
   console.log();
-  console.log("The site is otherwise a fairly bogstandard bootstrap/jquery build. All that");
+  console.log("The site is otherwise a fairly bogstandard Bootstrap/jQuery build. All that");
   console.log("should be required to get the development environment up is:");
   console.log();
   console.log("                       gulp")
@@ -261,7 +232,7 @@ gulp.task('readme', function() {
   console.log();
   console.log("will watch changes to the 'public' directory, serve a live updating version of")
   console.log("the site at localhost:8000 and live refresh when changes occur.")
-  console.log("To minifiy and concat resouces then publish the site to gh-pages:")
+  console.log("To minify and concat resouces, and then publish the site to gh-pages:")
   console.log();
   console.log("                       gulp deploy")
   console.log();
