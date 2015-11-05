@@ -41,7 +41,7 @@
                  })
                  if (foundDataset) {
                      var gridData = {
-                         exists: foundDataset["Exists],
+                         exists: foundDataset["Exists"],
 
                          online: foundDataset["Available online"],
 
