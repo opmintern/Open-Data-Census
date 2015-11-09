@@ -11,14 +11,14 @@
  var allRows = [];
 
  function showInfo(data, tabletop) {
-     allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "Department");
+     allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "State");
 
      var uri = new URI();
      var params = uri.search(true);
 
      if (params) {
          var filters = [];
-         filters.push(buildDepartmentFilter(params["department"]));
+         filters.push(buildStateFilter(params["state"]));
          filters.push(buildDatatypeFilter(params["datatype"]));
          updateCards(allRows, _.compact(filters));
      } else {
@@ -68,12 +68,12 @@
 
 
 
- function buildDepartmentFilter(department) {
-     if (!department) {
+ function buildStateFilter(state) {
+     if (!state) {
          return false;
      }
      return function(row) {
-         return row["Department"] === department;
+         return row["State"] === state;
      }
  }
 
@@ -90,9 +90,9 @@
      $("#cards").empty();
  }
 
- function filterByDepartment(department) {
+ function filterByState(state) {
      clearCards();
-     updateCards(allRows, [buildDepartmentFilter(department)]);
+     updateCards(allRows, [buildStateFilter(state)]);
  }
 
  function resetSearch() {

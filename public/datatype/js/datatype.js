@@ -10,7 +10,7 @@ var allRows = [];
 
 
 function showInfo(data, tabletop) {
-    allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "Department");
+    allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "State");
     filterByDatatype(pageType);
 }
 
