@@ -39,13 +39,14 @@
         })
          .map(function(row) {
           
-           row.exists = row["Exists in some form"];
-           row.online = row["Available online"];
+           row.exists = row["Exists"];
+           row.online = row["Digitized"];
+           row.online = row["Online"];
            row.machine = row["Machine readable"];
            row.bulk = row["Available in bulk"];
            row.openLicense = row["Open license"];
            row.fresh = row["Up-to-date"];
-           row.inRepo = row["In the repository"];
+           row.inRepo = row["In the state repository"];
            row.verifiable = row["Verifiable"];
            row.complete = row["Complete"];
 
