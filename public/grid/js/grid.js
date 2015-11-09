@@ -11,7 +11,7 @@
 
  function showInfo(data, tabletop) {
 
-     var departmentTemplate = Handlebars.compile($("#department-template").html());
+     var stateTemplate = Handlebars.compile($("#state-template").html());
 
      rawData = tabletop.sheets("Completed Grid Data").all()
      var allTypes = _.chain(rawData).map(function(row) {
@@ -24,13 +24,13 @@
      setupDatatypes(allTypes);
 
      var rows = _.chain(rawData)
-         .groupBy("City")
-         .map(function(datasets, department) {
+         .groupBy("State")
+         .map(function(datasets, state) {
              var row = {
-                 department: department,
+                 state: state,
                  state: datasets[0]["State"],
-                 departmentHref: URI().filename("datasets.html").search({
-                     "department": department
+                 stateHref: URI().filename("datasets.html").search({
+                     "state": state
                  }).toString(),
                  datasets: []
              }
@@ -60,7 +60,7 @@
                          complete: foundDataset["Complete"],
 
                          datasetHref: URI().filename("datasets.html").search({
-                             "department": row["department"],
+                             "state": row["state"],
                              "datatype": foundDataset["Type of Data"]
                          })
                      }
@@ -92,10 +92,10 @@
              });
              return row;
          })
-         .sortBy("department")
+         .sortBy("state")
          .each(function(row) {
-             var html = departmentTemplate(row);
-             $("#departments").append(html);
+             var html = stateTemplate(row);
+             $("#states").append(html);
          })
 
      .value();
