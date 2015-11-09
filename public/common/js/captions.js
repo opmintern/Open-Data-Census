@@ -5,6 +5,24 @@
          "Unsure": "It is unclear whether the state has this data"
      },
 
+     "digitized": {
+         "Yes": "The state has the data electronically",
+         "No": "The state does not have the data electronically",
+         "Unsure": "It is unclear whether the state has the data electronically"
+     },
+
+     "isPublic": {
+        "Yes": "The state provides this data to the public", 
+        "No": "The state does not provide this data to the public",
+        "Unsure": "It is unclear whether the state provides this data to the public"
+     },
+
+     "free": {
+        "Yes": "The state provides this data without cost",
+        "No": "The state charges for this data",
+        "Unsure": "It is unclear whether the state charges for this data"
+     },
+
      "online": {
          "Yes": "The data is available online",
          "No": "The data is not available online",
