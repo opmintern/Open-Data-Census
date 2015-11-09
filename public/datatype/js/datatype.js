@@ -48,17 +48,22 @@ function updateCards(rows, filters) {
         }).map(function(row) {
           
            row.exists = row["Exists"];
-           row.online = row["Digitized"];
+           row.digitized = row["Digitized"];
            row.online = row["Online"];
+           row.isPublic = row["Public"];
+           row.free = row["Free"];
            row.machine = row["Machine readable"];
            row.bulk = row["Available in bulk"];
-           row.openLicense = row["Open license"];
+           row.openLicense = row["No restrictions"];
            row.fresh = row["Up-to-date"];
            row.inRepo = row["In the state repository"];
            row.verifiable = row["Verifiable"];
            row.complete = row["Complete"];
 
            row.existsCaption = captions.exists[row.exists];
+           row.digitizedCaption = captions.digitized[row.digitized];
+           row.isPublicCaption = captions.isPublic[row.isPublic];
+           row.freeCaption = captions.free[row.free];
            row.onlineCaption = captions.online[row.online];
            row.machineCaption = captions.machine[row.machine];
            row.bulkCaption = captions.bulk[row.bulk];
