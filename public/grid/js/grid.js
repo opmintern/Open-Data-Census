@@ -43,7 +43,13 @@
                      var gridData = {
                          exists: foundDataset["Exists"],
 
-                         online: foundDataset["Available online"],
+                         digitized: foundDataset["Digitized"],
+
+                         isPublic: foundDataset["Public"], // "public" is reserved in JS
+
+                         free: foundDataset["Free"],
+
+                         online: foundDataset["Online"],
 
                          machine: foundDataset["Machine readable"],
 
@@ -65,7 +71,10 @@
                          })
                      }
 
-                     gridData.existsCaption = captions.exists[gridData.exists]; 
+                     gridData.existsCaption = captions.exists[gridData.exists];
+                     gridData.digitizedCaption = captions.digitized[gridData.digitized];
+                     gridData.isPublicCaption = captions.isPublic[gridData.isPublic];
+                     gridData.freeCaption = captions.free[gridData.free];
                      gridData.onlineCaption = captions.online[gridData.online];
                      gridData.machineCaption = captions.machine[gridData.machine];
                      gridData.bulkCaption = captions.bulk[gridData.bulk];
@@ -78,6 +87,9 @@
                  } else {
                      row["datasets"].push({
                          exists: "DNE",
+                         digitized: "DNE",
+                         isPublic: "DNE",
+                         free: "DNE",
                          online: "DNE",
                          machine: "DNE",
                          bulk: "DNE",
