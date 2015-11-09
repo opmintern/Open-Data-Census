@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>U.S. States Open Data Census</title>
+    <title>Company Data: U.S. States Open Data Census</title>
     <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,20 +26,18 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
-          <h1>Datasets / Use of Force
-            <h1>
-              <h3>Dataset Description:</h3>
-              <p>These datasets contain information about incidents where police officers used force. They may share how often different types of incidents occured in different months, or share incident-level data such as the date and location of the incident.</p>
+          <h1>States’ Datasets: Companies</h1>
+          <h3>Description</h3>
+          <p>The corporate registry—the businesses that exist in that state.</p>
         </div>
       </div>
       <div class="row">
         <div id="cards" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
-
         </div>
       </div>
     </div>
     <script id="department-template" type="text/x-handlebars-template">
-      <li><a href="#" onClick="filterByDepartment('{{Department}}')">{{Department}}</a></li>
+      <li><a href="#" onClick="filterByState('{{State}}')">{{State}}</a></li>
     </script>
     <script id="datatype-template" type="text/x-handlebars-template">
       <li><a href="#" onClick="filterByDatatype('{{[Type of Data]}}' )">{{[Type of Data]}}</a></li>
@@ -47,7 +45,7 @@
     <!-- inject:templates:html -->
     <!-- endinject -->
     <script>
-      pageType = "Use of Force";
+      pageType = "Companies";
     </script>
     <!-- inject:js -->
     <!-- endinject -->

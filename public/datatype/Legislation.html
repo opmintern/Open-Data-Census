@@ -2,7 +2,7 @@
 <html lang="en">
 
   <head>
-    <title>Police Open Data Census</title>
+    <title>Legislation: U.S. States Open Data Census</title>
     <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,16 +26,9 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
-          <h1>Datasets / Officer Involved Shootings
-            <h1>
-              <h3>Dataset Description:</h3>
-              <p>These datasets contain information about incidents where police officers discharge their service weapons. That may include shootings where no one was hit (misses), as well as where someone was injured or killed.</p>
-              <h3>Example Dataset:</h3>
-              <h4><a href="https://www.phillypolice.com/ois/">www.phillypolice.com/ois/</a></h4>
-              <p>Philadelphia provides information about the city's approach to violent crime, procedures when officer-involved shootings occur, some tables and maps they've put together, and definitions of the terms used in addition to data about individual
-                incidents.
-              </p>
-
+          <h1>States’ Datasets: Legislation</h1>
+          <h3>Description</h3>
+          <p>Bills before the legislature, plus supporting information about legislators, committees, etc.</p>
         </div>
       </div>
       <div class="row">
@@ -44,15 +37,16 @@
       </div>
     </div>
     <script id="department-template" type="text/x-handlebars-template">
-      <li><a href="#" onClick="filterByDepartment('{{Department}}')">{{Department}}</a></li>
+      <li><a href="#" onClick="filterByState('{{State}}')">{{State}}</a></li>
     </script>
     <script id="datatype-template" type="text/x-handlebars-template">
       <li><a href="#" onClick="filterByDatatype('{{[Type of Data]}}' )">{{[Type of Data]}}</a></li>
     </script>
+
     <!-- inject:templates:html -->
     <!-- endinject -->
     <script>
-      pageType = "Officer Involved Shootings";
+      pageType = "Legislation";
     </script>
     <!-- inject:js -->
     <!-- endinject -->
