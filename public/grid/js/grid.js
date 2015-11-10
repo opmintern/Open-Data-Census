@@ -42,29 +42,17 @@
                  if (foundDataset) {
                      var gridData = {
                          exists: foundDataset["Exists"],
-
                          digitized: foundDataset["Digitized"],
-
                          isPublic: foundDataset["Public"], // "public" is reserved in JS
-
                          free: foundDataset["Free"],
-
                          online: foundDataset["Online"],
-
                          machine: foundDataset["Machine readable"],
-
                          bulk: foundDataset["Available in bulk"],
-
                          openLicense: foundDataset["No restrictions"],
-
                          fresh: foundDataset["Up-to-date"],
-
                          inRepo: foundDataset["In the state repository"],
-
                          verifiable: foundDataset["Verifiable"],
-
                          complete: foundDataset["Complete"],
-
                          datasetHref: URI().filename("datasets.html").search({
                              "state": row["state"],
                              "datatype": foundDataset["Type of Data"]
