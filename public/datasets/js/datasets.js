@@ -109,6 +109,6 @@
  function filterByMachineReadable(machineReadable) {
      clearCards();
      updateCards(_.filter(allRows, function(row) {
-         return machineReadable ? row["Machine readable"] === "Yes" : row["Machine readable"] === "No";
+         return machineReadable ? row["Machine readable"] === "yes" : row["Machine readable"] === "no";
      }))
  }
