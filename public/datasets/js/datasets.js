@@ -11,7 +11,7 @@
  var allRows = [];
 
  function showInfo(data, tabletop) {
-     allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "State");
+     allRows = _.sortBy(tabletop.sheets("Census Data").all(), "State");
 
      var uri = new URI();
      var params = uri.search(true);

@@ -13,7 +13,7 @@
 
      var stateTemplate = Handlebars.compile($("#state-template").html());
 
-     rawData = tabletop.sheets("Completed Grid Data").all()
+     rawData = tabletop.sheets("Census Data").all()
      var allTypes = _.chain(rawData).map(function(row) {
              return row["Type of Data"]
          })
