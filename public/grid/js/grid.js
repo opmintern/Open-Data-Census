@@ -59,6 +59,12 @@
                          })
                      }
 
+                     for(var index in gridData) {
+                        if (!gridData[index]) {
+                            gridData[index] = "DNE";
+                        }
+                     }
+
                      gridData.existsCaption = captions.exists[gridData.exists];
                      gridData.digitizedCaption = captions.digitized[gridData.digitized];
                      gridData.isPublicCaption = captions.isPublic[gridData.isPublic];
