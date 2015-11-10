@@ -11,14 +11,14 @@
  var allRows = [];
 
  function showInfo(data, tabletop) {
-     allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "Department");
+     allRows = _.sortBy(tabletop.sheets("Census Data").all(), "State");
 
      var uri = new URI();
      var params = uri.search(true);
 
      if (params) {
          var filters = [];
-         filters.push(buildDepartmentFilter(params["department"]));
+         filters.push(buildStateFilter(params["state"]));
          filters.push(buildDatatypeFilter(params["datatype"]));
          updateCards(allRows, _.compact(filters));
      } else {
@@ -39,13 +39,14 @@
         })
          .map(function(row) {
           
-           row.exists = row["Exists in some form"];
-           row.online = row["Available online"];
+           row.exists = row["Exists"];
+           row.online = row["Digitized"];
+           row.online = row["Online"];
            row.machine = row["Machine readable"];
            row.bulk = row["Available in bulk"];
            row.openLicense = row["Open license"];
            row.fresh = row["Up-to-date"];
-           row.inRepo = row["In the repository"];
+           row.inRepo = row["In the state repository"];
            row.verifiable = row["Verifiable"];
            row.complete = row["Complete"];
 
@@ -68,12 +69,12 @@
 
 
 
- function buildDepartmentFilter(department) {
-     if (!department) {
+ function buildStateFilter(state) {
+     if (!state) {
          return false;
      }
      return function(row) {
-         return row["Department"] === department;
+         return row["State"] === state;
      }
  }
 
@@ -90,9 +91,9 @@
      $("#cards").empty();
  }
 
- function filterByDepartment(department) {
+ function filterByState(state) {
      clearCards();
-     updateCards(allRows, [buildDepartmentFilter(department)]);
+     updateCards(allRows, [buildStateFilter(state)]);
  }
 
  function resetSearch() {

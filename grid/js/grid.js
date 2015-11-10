@@ -11,9 +11,9 @@
 
  function showInfo(data, tabletop) {
 
-     var departmentTemplate = Handlebars.compile($("#department-template").html());
+     var stateTemplate = Handlebars.compile($("#state-template").html());
 
-     rawData = tabletop.sheets("Completed Grid Data").all()
+     rawData = tabletop.sheets("Census Data").all()
      var allTypes = _.chain(rawData).map(function(row) {
              return row["Type of Data"]
          })
@@ -24,13 +24,13 @@
      setupDatatypes(allTypes);
 
      var rows = _.chain(rawData)
-         .groupBy("City")
-         .map(function(datasets, department) {
+         .groupBy("State")
+         .map(function(datasets, state) {
              var row = {
-                 department: department,
+                 state: state,
                  state: datasets[0]["State"],
-                 departmentHref: URI().filename("datasets.html").search({
-                     "department": department
+                 stateHref: URI().filename("datasets.html").search({
+                     "state": state
                  }).toString(),
                  datasets: []
              }
@@ -43,7 +43,13 @@
                      var gridData = {
                          exists: foundDataset["Exists"],
 
-                         online: foundDataset["Available online"],
+                         digitized: foundDataset["Digitized"],
+
+                         isPublic: foundDataset["Public"], // "public" is reserved in JS
+
+                         free: foundDataset["Free"],
+
+                         online: foundDataset["Online"],
 
                          machine: foundDataset["Machine readable"],
 
@@ -60,12 +66,15 @@
                          complete: foundDataset["Complete"],
 
                          datasetHref: URI().filename("datasets.html").search({
-                             "department": row["department"],
+                             "state": row["state"],
                              "datatype": foundDataset["Type of Data"]
                          })
                      }
 
-                     gridData.existsCaption = captions.exists[gridData.exists]; 
+                     gridData.existsCaption = captions.exists[gridData.exists];
+                     gridData.digitizedCaption = captions.digitized[gridData.digitized];
+                     gridData.isPublicCaption = captions.isPublic[gridData.isPublic];
+                     gridData.freeCaption = captions.free[gridData.free];
                      gridData.onlineCaption = captions.online[gridData.online];
                      gridData.machineCaption = captions.machine[gridData.machine];
                      gridData.bulkCaption = captions.bulk[gridData.bulk];
@@ -78,6 +87,9 @@
                  } else {
                      row["datasets"].push({
                          exists: "DNE",
+                         digitized: "DNE",
+                         isPublic: "DNE",
+                         free: "DNE",
                          online: "DNE",
                          machine: "DNE",
                          bulk: "DNE",
@@ -92,10 +104,10 @@
              });
              return row;
          })
-         .sortBy("department")
+         .sortBy("state")
          .each(function(row) {
-             var html = departmentTemplate(row);
-             $("#departments").append(html);
+             var html = stateTemplate(row);
+             $("#states").append(html);
          })
 
      .value();

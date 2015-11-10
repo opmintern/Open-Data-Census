@@ -1,6 +1,6 @@
 $(document).ready(function() {
     Tabletop.init({
-        key: "1lv74SigFdFMJvza_dc2tBVd37r9E4-CPeY9YkRSaBxA",
+        key: "1OhVbryeHBsPjJ3TjjVFlfM552pDKRjiUpTAXQJe9miA",
         callback: showInfo,
         parseNumbers: true
     });
@@ -10,7 +10,7 @@ var allRows = [];
 
 
 function showInfo(data, tabletop) {
-    allRows = _.sortBy(tabletop.sheets("Completed Detailed Data").all(), "Department");
+    allRows = _.sortBy(tabletop.sheets("Census Data").all(), "State");
     filterByDatatype(pageType);
 }
 
@@ -46,17 +46,24 @@ function updateCards(rows, filters) {
                 return filter(row);
             });
         }).map(function(row) {
-          row.exists = row["Exists in some form"];
-          row.online = row["Available online"];
-          row.machine = row["Machine readable"];
-          row.bulk = row["Available in bulk"];
-          row.openLicense = row["Open license"];
-          row.fresh = row["Up-to-date"];
-          row.inRepo = row["In the repository"];
-          row.verifiable = row["Verifiable"];
-          row.complete = row["Complete"];
+          
+           row.exists = row["Exists"];
+           row.digitized = row["Digitized"];
+           row.online = row["Online"];
+           row.isPublic = row["Public"];
+           row.free = row["Free"];
+           row.machine = row["Machine readable"];
+           row.bulk = row["Available in bulk"];
+           row.openLicense = row["No restrictions"];
+           row.fresh = row["Up-to-date"];
+           row.inRepo = row["In the state repository"];
+           row.verifiable = row["Verifiable"];
+           row.complete = row["Complete"];
 
            row.existsCaption = captions.exists[row.exists];
+           row.digitizedCaption = captions.digitized[row.digitized];
+           row.isPublicCaption = captions.isPublic[row.isPublic];
+           row.freeCaption = captions.free[row.free];
            row.onlineCaption = captions.online[row.online];
            row.machineCaption = captions.machine[row.machine];
            row.bulkCaption = captions.bulk[row.bulk];
