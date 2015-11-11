@@ -4,6 +4,11 @@
          callback: showInfo,
          parseNumbers: true
      });
+
+    $(document).ready(function() {
+        $('.table-responsive').doubleScroll();
+    });
+
  });
 
 
