@@ -58,6 +58,8 @@
                          inRepo: foundDataset["In the state repository"],
                          verifiable: foundDataset["Verifiable"],
                          complete: foundDataset["Complete"],
+                         grade: foundDataset["Grade"],
+                         score: foundDataset["Score"],
                          datasetHref: URI().filename("datasets.html").search({
                              "state": row["state"],
                              "datatype": foundDataset["Type of Data"]
