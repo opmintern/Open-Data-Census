@@ -46,15 +46,15 @@
     border-left-color: silver;
 }
 
-.key ul li.Yes {
+.key ul li.yes {
     border-left-color: #8BDD3A;
 }
 
-.key ul li.No {
+.key ul li.no {
     border-left-color: #DD3D3A;
 }
 
-.key ul li.Unsure {
+.key ul li.unsure {
     border-left-color: #39BEFA  ;
 }
 

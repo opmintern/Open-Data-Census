@@ -21,6 +21,11 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script>
+      var host = "census.usopendata.org";
+      if ((host == window.location.host) && (window.location.protocol != "https:"))
+      window.location.protocol = "https";
+    </script>
   </head>
 
   <body>
@@ -53,7 +58,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
-          <p>[Intro and feedback instructions.]</p>
+          <p>This is a census of the data holdings of nine key datasets by U.S. states,
+          conducted by <a href="https://usopendata.org/">U.S. Open Data</a>. <em>This is
+          a work in progress.</em> Feedback may be sent to
+          <a href="mailto:contact@usopendata.org">contact@usopendata.org</a> or provided
+          in the form of <a href="https://github.com/opendata/Open-Data-Census/issues/">a
+          new issue on the project’s GitHub repository</a>.</p>
         </div>
       </div>
       <div class="row">
@@ -61,18 +71,18 @@
           <div class="key well">
             <h5>Key:</h5>
             <ul>
-              <li class="Yes">Yes</li>
-              <li class="No">No</li>
-              <li class="Unsure">Unsure</li>
+              <li class="yes">Yes</li>
+              <li class="no">No</li>
+              <li class="unsure">Unsure</li>
               <li class="DNE">No Data</li>
             </ul>
-            <img alt="Key" class="img-responsive" src="./grid/img/KeyToHashmarks.gif">
+            <img alt="Key" class="img-responsive" src="./grid/img/KeyToHashmarks.png">
           </div>
         </div>
         <div class="col-xs-6 col-sm-4 col-md-5 main">
           <h2 class="text-center">Want to add or update a dataset?
             <h2>
-              <a class="btn btn-primary btn-lg btn-block cta-button" href="https://docs.google.com/a/codeforamerica.org/forms/d/1Qe3UQOPI7w0QxdsVVhy6tTbX5TYMlqc48duP7YP9z6k/viewform">
+              <a class="btn btn-primary btn-lg btn-block cta-button" href="https://github.com/opendata/Open-Data-Census/issues/new?title=Missing+Data:&amp;body=STATE%3A%20%0ADATASET%3A%20%0AURL%3A%20%0A%0ADESCRIPTION%2FCOMMENTS%3A%0A%0A%5BHere%20you%20might%20describe%20the%20quality%20of%20the%20data%2C%20rate%20it%20using%20the%20census%27%20metrics%2C%20suggest%20changes%20to%20an%20existing%20dataset%2C%20etc.%5D">
                 Submit an update
               </a>
             </h2>
@@ -86,6 +96,17 @@
               <tbody id="states"></tbody>
             </table>
           </div>
+        </div>
+      </div>
+      <div class="row">
+         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+          <footer>
+            <p><small>Created by <a href="https://usopendata.org/">U.S. Open Data</a>. All data published under
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/">the CC0 license</a>, all other
+            contents published under <a href="https://opensource.org/licenses/MIT">the MIT license</a>.
+            <a href="https://github.com/opendata/Open-Data-Census/">Pull requests cheerfully accepted on
+            GitHub</a>.</small></p>
+          </footer>
         </div>
       </div>
     </div>

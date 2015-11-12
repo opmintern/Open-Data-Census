@@ -40,17 +40,24 @@
          .map(function(row) {
           
            row.exists = row["Exists"];
-           row.online = row["Digitized"];
+           row.digitized = row["Digitized"];
+           row.isPublic = row["Public"];
+           row.free = row["Free"];
            row.online = row["Online"];
            row.machine = row["Machine readable"];
            row.bulk = row["Available in bulk"];
-           row.openLicense = row["Open license"];
+           row.openLicense = row["No restrictions"];
            row.fresh = row["Up-to-date"];
            row.inRepo = row["In the state repository"];
            row.verifiable = row["Verifiable"];
            row.complete = row["Complete"];
+           row.grade = row["Grade"];
+           row.score = row["Score"];
 
            row.existsCaption = captions.exists[row.exists];
+           row.digitizedCaption = captions.digitized[row.digitized];
+           row.isPublicCaption = captions.isPublic[row.isPublic];
+           row.freeCaption = captions.free[row.free];
            row.onlineCaption = captions.online[row.online];
            row.machineCaption = captions.machine[row.machine];
            row.bulkCaption = captions.bulk[row.bulk];
@@ -109,6 +116,6 @@
  function filterByMachineReadable(machineReadable) {
      clearCards();
      updateCards(_.filter(allRows, function(row) {
-         return machineReadable ? row["Machine readable"] === "Yes" : row["Machine readable"] === "No";
+         return machineReadable ? row["Machine readable"] === "yes" : row["Machine readable"] === "no";
      }))
  }
