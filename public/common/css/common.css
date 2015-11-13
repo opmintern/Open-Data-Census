@@ -53,11 +53,11 @@ p {
 }
 
 .datapole.yes {
-    background-color: #8BDD3A;
+    background-color: #98fb98;
 }
 
 .datapole.no {
-    background-color: #DD3D3A;
+    background-color: #d33333;
 }
 
 .datapole.unsure {
