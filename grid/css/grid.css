@@ -47,11 +47,11 @@
 }
 
 .key ul li.yes {
-    border-left-color: #8BDD3A;
+    border-left-color: #98fb98;
 }
 
 .key ul li.no {
-    border-left-color: #DD3D3A;
+    border-left-color: #d33333;
 }
 
 .key ul li.unsure {
