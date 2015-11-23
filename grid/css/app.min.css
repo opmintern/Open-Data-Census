@@ -1,3 +1,7 @@
+tbody#states a:hover {
+    text-decoration: none;
+}
+
 .datapoles {
     width: 130px;
     margin: auto;

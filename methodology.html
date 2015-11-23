@@ -3,7 +3,6 @@
 
   <head>
     <title>Methodology: U.S. States Open Data Census</title>
-    <link href="./favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +11,8 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- inject:css -->
-    <link rel="stylesheet" href="/common/css/font-awesome.css">
-    <link rel="stylesheet" href="/common/css/common.css">
+    <link rel="stylesheet" href="/Open-Data-Census/common/css/lib.min.css">
+    <link rel="stylesheet" href="/Open-Data-Census/common/css/common.css">
     <!-- endinject -->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -106,7 +105,7 @@
           <p>May the public have access to this data, or is it protected or confidential in some way?</p>
           
           <h3>Free (Without Cost)</h3>
-          <p>Does the state sell this data, or do they give it away without charge? <em>Any</em> charge, no matter how small, yields a rating of “no.”</p>
+          <p>Does the state sell this data, or do they give it away without charge? <em>Any</em> charge, no matter how small, yields a rating of “no.” If <em>information</em> is provided freely on the website, but <em>data</em> is sold (e.g., business entity records can be browsed on the web, but bulk data must be purchased), then this will be given a rating of “no.”</p>
           
           <h3>Available Online</h3>
           <p>Can it be downloaded over the internet, or must it be transported on removable storage media?</p>
@@ -238,7 +237,7 @@
 
           <ul>
           <li>locality name</li>
-          <li>locality FIPS code</li>
+          <li>locality FIPS code or GNIS ID</li>
           <li>estimate as of date X</li>
           </ul>
 
@@ -435,13 +434,8 @@
       pageType = "Address Points";
     </script>
     <!-- inject:js -->
-    <script src="/common/js/tabletop.js"></script>
-    <script src="/common/js/jquery.js"></script>
-    <script src="/common/js/bootstrap.js"></script>
-    <script src="/common/js/handlebars.js"></script>
-    <script src="/common/js/underscore.js"></script>
-    <script src="/common/js/URI.js"></script>
-    <script src="/common/js/captions.js"></script>
+    <script src="/Open-Data-Census/common/js/lib.min.js"></script>
+    <script src="/Open-Data-Census/common/js/common.min.js"></script>
     <!-- endinject -->
   </body>
 
