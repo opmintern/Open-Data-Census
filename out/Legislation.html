@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Legislation: U.S. States Open Data Census</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/common/css/font-awesome.css">
+    <link rel="stylesheet" href="/common/css/common.css">
+    <!-- endinject -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script>
+      var host = "census.usopendata.org";
+      if ((host == window.location.host) && (window.location.protocol != "https:"))
+      window.location.protocol = "https";
+    </script>
+  </head>
+
+  <body>
+    <!-- inject:nav:html -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-contents">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./#">U.S. States Open Data Census</a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-contents">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="./">Overview</a>
+                </li>
+                <li>
+                    <a href="./datasets.html">All Datasets</a>
+                </li>
+                <li>
+                    <a href="./methodology.html">Methodology</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- endinject -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+          <h1>States’ Datasets: Legislation</h1>
+          <h3>Description</h3>
+          <p>Bills before the legislature, and the legislators that comprise it.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="cards" class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+        </div>
+      </div>
+      <div class="row">
+         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+          <footer>
+            <p><small>Created by <a href="https://usopendata.org/">U.S. Open Data</a>. All data published under
+            <a href="https://creativecommons.org/publicdomain/zero/1.0/">the CC0 license</a>, all other
+            contents published under <a href="https://opensource.org/licenses/MIT">the MIT license</a>.
+            <a href="https://github.com/opendata/Open-Data-Census/">Pull requests cheerfully accepted on
+            GitHub</a>.</small></p>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script id="department-template" type="text/x-handlebars-template">
+      <li><a href="#" onClick="filterByState('{{State}}')">{{State}}</a></li>
+    </script>
+    <script id="datatype-template" type="text/x-handlebars-template">
+      <li><a href="#" onClick="filterByDatatype('{{[Type of Data]}}' )">{{[Type of Data]}}</a></li>
+    </script>
+
+    <!-- inject:templates:html -->
+    <script id="card-template" type="text/x-handlebars-template"><div class="panel panel-default">
+    <div class="panel-heading state-title-heading">
+        <h1 class="state-title">{{State}}: {{"Type of Data"}}</h1>
+    </div>
+    <div class="panel-body">
+      <div class="data-icons">
+        <p><b>Data Breakdown:</b></p>
+            <ul class="availablilty icons">
+                <a data-toggle="tooltip" title data-original-title="{{existsCaption}}">
+                    <li>
+                        <i class="fa fa-cube datapole {{exists}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{digitizedCaption}}">
+                    <li>
+                        <i class="fa fa-desktop datapole {{digitized}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{isPublicCaption}}">
+                    <li>
+                        <i class="fa fa-users datapole {{isPublic}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{freeCaption}}">
+                    <li>
+                        <i class="fa fa-money datapole {{free}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{onlineCaption}}">
+                    <li>
+                        <i class="fa fa-eye datapole {{online}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{machineCaption}}">
+                    <li>
+                        <i class="fa fa-keyboard-o datapole {{machine}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{bulkCaption}}">
+                    <li>
+                        <i class="fa fa-files-o datapole {{bulk}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{openLicenseCaption}}">
+                    <li>
+                        <i class="fa fa-share-alt datapole {{openLicense}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{freshCaption}}">
+                    <li>
+                        <i class="fa fa-clock-o datapole {{fresh}}"></i>
+                    </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{inRepoCaption}}">
+                    <li>
+                        <i class="fa fa-archive datapole {{inRepo}}"></i>
+                     </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{verifiableCaption}}">
+                    <li>
+                        <i class="fa fa-check-circle datapole {{verifiable}}"></i>
+                     </li>
+                </a>
+                <a data-toggle="tooltip" title data-original-title="{{completeCaption}}">
+                    <li>
+                        <i class="fa fa-circle-o datapole {{complete}}"></i>
+                     </li>
+                </a>
+            </ul>
+        </div>
+        <p><b>Grade:</b> {{"Grade"}} ({{"Score"}}%)</p>
+        <p><b>Description:</b> {{"Description"}}</p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Exists:</b> {{"Exists"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Digitized:</b> {{"Digitized"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Public:</b> {{"Public"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Without cost:</b> {{"Free"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Online:</b> {{"Online"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Machine-readable:</b> {{"Machine readable"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Available in bulk:</b> {{"Available in bulk"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>No license restrictions:</b> {{"No restrictions"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Up-to-date:</b> {{"Up-to-date"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>In the state repository:</b> {{"In the state repository"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Verifiable:</b> {{"Verifiable"}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p><b>Complete:</b> {{"Complete"}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <p><b>Comments:</b> {{"Comments"}}</p>
+            </div>
+        </div>
+        <a href="{{"Link"}}">{{"Link"}}</a>
+        </br>
+        <small>This summary last updated on: {{"Last updated"}}</small>
+    </div>
+</div>
+</script>
+    <!-- endinject -->
+    <script>
+      pageType = "Legislation";
+    </script>
+    <!-- inject:js -->
+    <script src="/common/js/tabletop.js"></script>
+    <script src="/common/js/jquery.js"></script>
+    <script src="/common/js/bootstrap.js"></script>
+    <script src="/common/js/handlebars.js"></script>
+    <script src="/common/js/underscore.js"></script>
+    <script src="/common/js/URI.js"></script>
+    <script src="/common/js/captions.js"></script>
+    <script src="/datatype/js/datatype.js"></script>
+    <!-- endinject -->
+  </body>
+
+</html>
