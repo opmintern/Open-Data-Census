@@ -54,10 +54,6 @@ gulp.task('buildDev', ['npm', 'bower', "clean"], function() {
         .pipe(gulp.dest('out/common/js'));
 
 
-    gulp.src('./public/common/favicon.ico')
-      .pipe(gulp.dest('out/'));
-
-
     return merge(underscore.map(modules, function(module) {
         var target = gulp.src('./public/' + module + '/*.html');
 
