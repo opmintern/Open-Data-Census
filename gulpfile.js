@@ -53,6 +53,8 @@ gulp.task('buildDev', ['npm', 'bower', "clean"], function() {
     var commonJs = gulp.src('./public/common/js/**.js')
         .pipe(gulp.dest('out/common/js'));
 
+    gulp.src('./public/common/CNAME')
+        .pipe(gulp.dest('out/'));
 
     return merge(underscore.map(modules, function(module) {
         var target = gulp.src('./public/' + module + '/*.html');
