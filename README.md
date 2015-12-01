@@ -1,17 +1,10 @@
-To Add a New Department or Dataset:
--------------
+# U.S. States Open Data Census
 
-[Fill out this form!](https://docs.google.com/forms/d/1Qe3UQOPI7w0QxdsVVhy6tTbX5TYMlqc48duP7YP9z6k/viewform) 
-
-For Development:
--------------
-
-`git clone git@github.com:codeforamerica/PoliceOpenDataCensus.git`
-
-`cd PoliceOpenDataCensus`
-
+## How to Deploy
+`git clone git@github.com:opendata/Open-Data-Census.git`
+`cd Open-Data-Census`
 `npm install`
-
 `npm install gulp -G`
-
 `gulp readme`
+
+[![ZenHub] (https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)] (https://zenhub.io)
