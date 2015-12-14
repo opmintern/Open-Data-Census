@@ -70,7 +70,7 @@
           <p><a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues/1#issuecomment-73299844">We used the G8 National Action Plan’s definition of “High-Value Datasets,”</a> recognizing that needs and opportunities are different at the state level than at the national level. We <a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues?q=is%3Aissue">created GitHub issues to select each representative dataset</a>, and in the ensuing discussion we selected the most appropriate state-level dataset to represent that class of data.</p>
 
           <h2>Evaluation Criteria</h2>
-          <p>Each dataset is evaluated by 12 metrics. Each is worth 5 points, except for “Exists,” which is worth 0 points, and “Machine-readable,” which is worth 50. (Machine readability is worth far more points because that is the essence of open data. There is a good argument to be made that open licensing is just as valuable, but there is inadequate evidence that U.S. states claiming copyright on these datasets is a practical obstacle to openness to warrant equal scoring at this time.) This adds up to 100 points, upon which grading is based. The grading scale is as follows:</p>
+          <p>Each dataset is evaluated by 12 metrics. Each is worth 5 points, except for “Exists” (which is worth 0 points) “Free” (which is worth 15 points) and “Machine-readable” (which is worth 40 points). Machine readability is worth far more points because that is the essence of open data, and being without cost is worth somewhat more because of its corresponding importance (though not essential nature) to the free flow of data. There is a good argument to be made that open licensing is also quite valuable, but there is inadequate evidence that U.S. states claiming copyright on these datasets is a practical obstacle to openness to warrant equal scoring at this time—often, they seem to claim copyright accidentally, via boilerplate copyright statements on websites. All of these cirteria add up to 100 points, upon which grading is based. The grading scale is as follows:</p>
 
           <div class="table-responsive">
           <table class="table-condensed table-striped">
@@ -140,6 +140,8 @@
           <h3 id="evaluation-corporations">Companies</h3>
           <p><a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues/39">GitHub Discussion</a></p>
 
+          <p>Evaluation begins by looking at <a href="http://registries.opencorporates.com/jurisdiction/average_us">OpenCorporations’ scores for individual states</a>.</p>
+
           <ul>
           <li>ID</li>
           <li>name</li>
@@ -176,6 +178,8 @@
           <h3 id="evaluation-checkbook">Checkbook</h3>
           <p><a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues/36">GitHub Discussion</a></p>
 
+          <p>Evaluation begins by referring to the <a href="http://www.ncsl.org/research/telecommunications-and-information-technology/statewide-transparency-spending-websites-and-legis.aspx">National Conference of State Legislatures’ "Statewide Transparency and Spending Websites"</a> and to <a href="http://uspirg.org/sites/pirg/files/reports/Following%20the%20Money%202015%20vUS.pdf">U.S. PIRG’s “Follow the Money” report</a> (page 57), each of which are already comprehensive censuses of each state’s spending transparency websites.
+
           <ul>
           <li>agency</li>
           <li>payee</li>
@@ -189,6 +193,8 @@
           <h3 id="evaluation-address-points">Address Points</h3>
           <p><a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues/35">GitHub Discussion</a></p>
 
+          <p>Evaluation begins by checking <a href="https://github.com/openaddresses/openaddresses/tree/master/sources/us">OpenAddresses’ data sources</a>, to see if there is a state-level data source in their inventory. OpenAddresses is conducting an ongoing census of every source of address points in the United States.</p>
+
           <ul>
           <li>address: numeric component</li>
           <li>address: street name</li>
@@ -197,6 +203,8 @@
 
           <h3 id="evaluation-legislation">Legislation</h3>
           <p><a href="https://github.com/sunlightpolicy/State-Open-Data-Census/issues/30">GitHub Discussion</a></p>
+
+          <p>Evaluation begins by referring to <a href="http://openstates.org/reportcard/">Open States’ “Open Legislation Data Report Card”</a>, which is a comprehensive census of state-level legislation data.</p>
 
           <ul>
           <li>legislators
@@ -431,7 +439,7 @@
 </script>
     <!-- endinject -->
     <script>
-      pageType = "Address Points";
+      pageType = "Methodology";
     </script>
     <!-- inject:js -->
     <script src="/common/js/tabletop.js"></script>
@@ -440,6 +448,7 @@
     <script src="/common/js/handlebars.js"></script>
     <script src="/common/js/underscore.js"></script>
     <script src="/common/js/URI.js"></script>
+    <script src="/common/js/spin.js"></script>
     <script src="/common/js/captions.js"></script>
     <!-- endinject -->
   </body>
