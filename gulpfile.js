@@ -35,9 +35,9 @@ gulp.task('clean', function() {
   return del.sync(['out/']);
 });
 
-gulp.task('buildDev', ['npm', 'bower', "clean"], function() {
+gulp.task('buildDev', ['npm', 'bower', 'clean'], function() {
     var lib = prepBower();
-
+    
     var bowerJs = gulp.src(lib.ext('js').files)
         .pipe(gulp.dest('out/common/js'));
 
