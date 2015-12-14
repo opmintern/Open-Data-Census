@@ -1,6 +1,6 @@
 {
-  "name": "policedatacensus",
-  "version": "0.0.0",
+  "name": "Open-Data-Census",
+  "version": "0.9",
   "license": "MIT",
   "ignore": [
     "**/.*",
