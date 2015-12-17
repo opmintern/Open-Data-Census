@@ -17,55 +17,11 @@ tbody#states a:hover {
     border-radius: 1px;
 }
 
-#datasets > tr > th {
-    text-align: center;
 }
 
-.key {
-    display: inline-block;
-    padding-top: 0;
-    padding-bottom: 0;
 }
-
-.key h5 {
-    display: inline-block;
-    margin-right: 10px;
 }
-
-.key ul {
-    margin: 0;
-    display: inline-block;
-    padding-left: 10px;
 }
-
-.key ul li {
-    display: inline-block;
-    border-left: solid 16px #000;
-    line-height: 16px;
-    padding-left: 5px;
-    padding-right: 10px;
 }
-
-.key ul li.DNE {
-    border-left-color: silver;
 }
-
-.key ul li.yes {
-    border-left-color: #98fb98;
-}
-
-.key ul li.no {
-    border-left-color: #d33333;
-}
-
-.key ul li.unsure {
-    border-left-color: #39BEFA  ;
-}
-
-.key img {
-    padding-bottom: 10px;
-}
-
-.cta-button {
-  font-size: 30px;
 }

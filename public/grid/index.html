@@ -42,20 +42,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-6 col-sm-4 col-sm-offset-2 col-md-5 col-md-offset-1 main">
-          <div class="key well">
-            <h5>Key:</h5>
-            <ul>
-              <li class="yes">Yes</li>
-              <li class="no">No</li>
-              <li class="unsure">Unsure</li>
-              <li class="DNE">No Data</li>
-            </ul>
-            <img alt="Key" class="img-responsive" src="./grid/img/KeyToHashmarks.png">
-          </div>
-        </div>
         <div class="col-xs-6 col-sm-4 col-md-5 main">
-          <h2 class="text-center">Want to add or update a dataset?
             <h2 class="text-center">
               <a class="btn btn-primary btn-lg" href="https://github.com/opendata/Open-Data-Census/issues/new?title=Missing+Data:&amp;body=STATE%3A%20%0ADATASET%3A%20%0AURL%3A%20%0A%0ADESCRIPTION%2FCOMMENTS%3A%0A%0A%5BHere%20you%20might%20describe%20the%20quality%20of%20the%20data%2C%20rate%20it%20using%20the%20census%27%20metrics%2C%20suggest%20changes%20to%20an%20existing%20dataset%2C%20etc.%5D">
                 Submit an update
@@ -89,7 +76,6 @@
       <tr>
         <td> <a href="{{stateHref}}"> {{state}} </a> </td>
         {{#each this.datasets}}
-        <td>
           <a href="{{datasetHref}}">
             <ul class="datapoles">
               <li class="datapole {{exists}}" data-toggle="tooltip" title="{{existsCaption}}"></li>
