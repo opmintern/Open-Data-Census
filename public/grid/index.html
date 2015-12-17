@@ -76,21 +76,9 @@
       <tr>
         <td> <a href="{{stateHref}}"> {{state}} </a> </td>
         {{#each this.datasets}}
+        <td class="grade grade-{{grade}}">
           <a href="{{datasetHref}}">
-            <ul class="datapoles">
-              <li class="datapole {{exists}}" data-toggle="tooltip" title="{{existsCaption}}"></li>
-              <li class="datapole {{digitized}}" data-toggle="tooltip" title="{{digitizedCaption}}"></li>
-              <li class="datapole {{isPublic}}" data-toggle="tooltip" title="{{isPublicCaption}}"></li>
-              <li class="datapole {{free}}" data-toggle="tooltip" title="{{freeCaption}}"></li>
-              <li class="datapole {{online}}" data-toggle="tooltip" title="{{onlineCaption}}"></li>
-              <li class="datapole {{machine}}" data-toggle="tooltip" title="{{machineCaption}}"></li>
-              <li class="datapole {{bulk}}" data-toggle="tooltip" title="{{bulkCaption}}"></li>
-              <li class="datapole {{openLicense}}" data-toggle="tooltip" title="{{openLicenseCaption}}"></li>
-              <li class="datapole {{fresh}}" data-toggle="tooltip" title="{{freshCaption}}"></li>
-              <li class="datapole {{inRepo}}" data-toggle="tooltip" title="{{inRepoCaption}}"></li>
-              <li class="datapole {{verifiable}}" data-toggle="tooltip" title="{{verifiableCaption}}"></li>
-              <li class="datapole {{complete}}" data-toggle="tooltip" title="{{completeCaption}}"></li>
-            </ul>
+           {{grade}}
           </a>
         </td>
         {{/each}}
@@ -98,8 +86,10 @@
     </script>
     <script id="dataset-template" type="text/x-handlebars-template">
       <tr>
-        <th>State</th> {{#each this}}
-        <th> <a href="{{datatypeHref}}"> {{datatype}} </a></th> {{/each}} </tr>
+        <th>State</th>
+        {{#each this}}
+        <th><span><a href="{{datatypeHref}}">{{datatype}}</a></span></th>
+        {{/each}} </tr>
     </script>
     <!-- inject:js -->
     <!-- endinject -->
