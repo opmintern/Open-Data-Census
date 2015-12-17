@@ -17,12 +17,9 @@ tbody#states a:hover {
     border-radius: 1px;
 }
 
-#datasets > tr > th {
-    text-align: center;
-}
 
 .key {
-    display: inline-block;
+    display: none;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -68,4 +65,29 @@ tbody#states a:hover {
 
 .cta-button {
   font-size: 30px;
+}
+
+td.grade {
+    text-align: center;
+    font-weight: bold;
+    background-color: lightgray;
+}
+    td.grade a {
+        display: block;
+        color: #000;
+    }
+td.grade-A, td.grade-A-, td.grade-A\00002b {
+    background-color: #3c3;
+}
+td.grade-B, td.grade-B-, td.grade-B\00002b {
+    background-color: #adff2f;
+}
+td.grade-C, td.grade-C-, td.grade-C\00002b {
+    background-color: yellow;
+}
+td.grade-D, td.grade-D-, td.grade-D\00002b {
+    background-color: orange;
+}
+td.grade-F {
+    background-color: #c33;
 }
