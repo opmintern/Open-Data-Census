@@ -1,7 +1,6 @@
-tbody#states a:hover {
-    text-decoration: none;
+.cta-button {
+  font-size: 30px;
 }
-
 .datapoles {
     width: 130px;
     margin: auto;
@@ -17,8 +16,15 @@ tbody#states a:hover {
     border-radius: 1px;
 }
 
-.cta-button {
-  font-size: 30px;
+tbody#states a:hover {
+    text-decoration: none;
+}
+
+table td {
+    border: 1px solid #000;
+}
+thead {
+    border-bottom: 1px solid #000;
 }
 
 td.grade {
