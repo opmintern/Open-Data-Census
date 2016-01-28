@@ -30,16 +30,16 @@ td.grade {
         display: block;
         color: #000;
     }
-td.grade-A, td.grade-A-, td.grade-A\00002b {
+td.grade-A, td.grade-A\00002B, td.grade-A\002212, td.grade-A− {
     background-color: #3c3;
 }
-td.grade-B, td.grade-B-, td.grade-B\00002b {
+td.grade-B, td.grade-B\00002B, td.grade-B\002212, td.grade-B− {
     background-color: #adff2f;
 }
-td.grade-C, td.grade-C-, td.grade-C\00002b {
+td.grade-C, td.grade-C\00002B, td.grade-C\002212, td.grade-C− {
     background-color: yellow;
 }
-td.grade-D, td.grade-D-, td.grade-D\00002b {
+td.grade-D, td.grade-D\00002B, td.grade-D\002212, td.grade-D− {
     background-color: orange;
 }
 td.grade-F {
