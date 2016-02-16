@@ -20,7 +20,7 @@ var opts = {
 , hwaccel: false // Whether to use hardware acceleration
 , position: 'absolute' // Element positioning
 }
-var target = document.getElementById('data-container')
+var target = document.getElementById('spinner-container')
 var spinner = new Spinner(opts).spin(target);
 
  $(document).ready(function() {
