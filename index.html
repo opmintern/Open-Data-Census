@@ -7,8 +7,6 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta content="" name="description">
-    <meta content="" name="author">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <!-- inject:css -->
     <link rel="stylesheet" href="/common/css/font-awesome.css">
@@ -80,6 +78,16 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+            <style>
+              #vmap
+                  cursor: pointer
+              }
+            </style>
+            <div id="vmap"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-10 col-md-offset-1 main">
           <div class="table-responsive" id="grid">
             <table class="table">
               <thead id="datasets"></thead>
@@ -127,6 +135,8 @@
     <script src="/common/js/underscore.js"></script>
     <script src="/common/js/URI.js"></script>
     <script src="/common/js/spin.js"></script>
+    <script src="/common/js/jquery.vmap.min.js"></script>
+    <script src="/common/js/index.js"></script>
     <script src="/common/js/captions.js"></script>
     <script src="/grid/js/grid.js"></script>
     <!-- endinject -->
