@@ -54,6 +54,7 @@ td.grade-F {
     max-width: 800px;
     max-height: 500px;
     cursor: pointer;
+    margin: 0 auto;
 }
 /* Setup basic CSS for Label */
 .jqvmap_pin {
