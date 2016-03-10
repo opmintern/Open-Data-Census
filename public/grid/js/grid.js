@@ -144,9 +144,6 @@ function mapInfo(data, tabletop) {
        onRegionClick: function(event, code, region){
             event.preventDefault();
             window.location.href = "/datasets.html?state=" + region;
-       },
-       onResize: function (element, width, height) {
-            console.log('Map Size: ' +  width + 'x' +  height)
        }
      });
 
