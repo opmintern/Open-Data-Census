@@ -103,7 +103,7 @@ function mapInfo(data, tabletop) {
         "wy": "Wyoming"
      }
      rawData = tabletop.sheets('Places').all();
-     var entity_scores = {};
+     var place_scores = {};
      for (var key in rawData){
         name = rawData[key]['Name'];
         for (var key2 in state_abbreviations){
@@ -111,7 +111,7 @@ function mapInfo(data, tabletop) {
                 abbreviation = key2;
             }
         }
-        entity_scores[abbreviation] = rawData[key]['Score']
+        place_scores[abbreviation] = rawData[key]['Score']
      }
 
      var score_colors = {
@@ -125,11 +125,11 @@ function mapInfo(data, tabletop) {
         "90": "#084594",
      }
 
-     var entity_colors = {};
-     for (var key in entity_scores){
-        score = Math.floor(entity_scores[key] / 10) * 10;
+     var place_colors = {};
+     for (var key in place_scores){
+        score = Math.floor(place_scores[key] / 10) * 10;
         if (score < 20) score = 20;
-        entity_colors[key] = score_colors[score];
+        place_colors[key] = score_colors[score];
      }
 
      $('#vmap').vectorMap({
@@ -140,7 +140,7 @@ function mapInfo(data, tabletop) {
        showLabels: true,
        selectedColor: null,
        hoverColor: "#f66",
-       colors: entity_colors,
+       colors: place_colors,
        onRegionClick: function(event, code, region){
             event.preventDefault();
             window.location.href = "/datasets.html?state=" + region;
