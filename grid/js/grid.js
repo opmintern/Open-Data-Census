@@ -103,7 +103,7 @@ function mapInfo(data, tabletop) {
         "wy": "Wyoming"
      }
      rawData = tabletop.sheets('Places').all();
-     var entity_scores = {};
+     var place_scores = {};
      for (var key in rawData){
         name = rawData[key]['Name'];
         for (var key2 in state_abbreviations){
@@ -111,7 +111,7 @@ function mapInfo(data, tabletop) {
                 abbreviation = key2;
             }
         }
-        entity_scores[abbreviation] = rawData[key]['Score']
+        place_scores[abbreviation] = rawData[key]['Score']
      }
 
      var score_colors = {
@@ -125,11 +125,11 @@ function mapInfo(data, tabletop) {
         "90": "#084594",
      }
 
-     var entity_colors = {};
-     for (var key in entity_scores){
-        score = Math.floor(entity_scores[key] / 10) * 10;
+     var place_colors = {};
+     for (var key in place_scores){
+        score = Math.floor(place_scores[key] / 10) * 10;
         if (score < 20) score = 20;
-        entity_colors[key] = score_colors[score];
+        place_colors[key] = score_colors[score];
      }
 
      $('#vmap').vectorMap({
@@ -140,7 +140,7 @@ function mapInfo(data, tabletop) {
        showLabels: true,
        selectedColor: null,
        hoverColor: "#f66",
-       colors: entity_colors,
+       colors: place_colors,
        onRegionClick: function(event, code, region){
             event.preventDefault();
             window.location.href = "/datasets.html?state=" + region;
@@ -159,11 +159,19 @@ function mapInfo(data, tabletop) {
 
      setupDatatypes(allTypes);
 
+     /* Reverse the state abbreviations' keys and values. */
+     reversed = {};
+     for(var key in state_abbreviations){
+         reversed[state_abbreviations[key]] = key;
+     }
+     state_abbreviations = reversed;
+
      var rows = _.chain(rawData)
          .groupBy("State")
          .map(function(datasets, state) {
              var row = {
                  state: state,
+                 state_score: place_scores[state_abbreviations[state]] + "%",
                  state: datasets[0]["State"],
                  stateHref: URI().filename("datasets.html").search({
                      "state": state
@@ -177,18 +185,6 @@ function mapInfo(data, tabletop) {
                  })
                  if (foundDataset) {
                      var gridData = {
-                         exists: foundDataset["Exists"],
-                         digitized: foundDataset["Digitized"],
-                         isPublic: foundDataset["Public"], // "public" is reserved in JS
-                         free: foundDataset["Free"],
-                         online: foundDataset["Online"],
-                         machine: foundDataset["Machine readable"],
-                         bulk: foundDataset["Available in bulk"],
-                         openLicense: foundDataset["No restrictions"],
-                         fresh: foundDataset["Up-to-date"],
-                         inRepo: foundDataset["In the state repository"],
-                         verifiable: foundDataset["Verifiable"],
-                         complete: foundDataset["Complete"],
                          grade: foundDataset["Grade"],
                          score: foundDataset["Score"],
                          datasetHref: URI().filename("datasets.html").search({
@@ -203,35 +199,7 @@ function mapInfo(data, tabletop) {
                         }
                      }
 
-                     gridData.existsCaption = captions.exists[gridData.exists];
-                     gridData.digitizedCaption = captions.digitized[gridData.digitized];
-                     gridData.isPublicCaption = captions.isPublic[gridData.isPublic];
-                     gridData.freeCaption = captions.free[gridData.free];
-                     gridData.onlineCaption = captions.online[gridData.online];
-                     gridData.machineCaption = captions.machine[gridData.machine];
-                     gridData.bulkCaption = captions.bulk[gridData.bulk];
-                     gridData.openLicenseCaption = captions.openLicense[gridData.openLicense];
-                     gridData.freshCaption = captions.fresh[gridData.fresh];
-                     gridData.inRepoCaption = captions.inRepo[gridData.inRepo];
-                     gridData.verifiableCaption = captions.verifiable[gridData.verifiable];
-                     gridData.completeCaption = captions.complete[gridData.complete];
-                     row["datasets"].push(gridData).toString()
-                 } else {
-                     row["datasets"].push({
-                         exists: "DNE",
-                         digitized: "DNE",
-                         isPublic: "DNE",
-                         free: "DNE",
-                         online: "DNE",
-                         machine: "DNE",
-                         bulk: "DNE",
-                         openLicense: "DNE",
-                         fresh: "DNE",
-                         inRepo: "DNE",
-                         verifiable: "DNE",
-                         complete: "DNE",
-                         datasetHref: "https://github.com/opendata/Open-Data-Census/issues/new?title=Missing+Data:&amp;body=STATE%3A%20%0ADATASET%3A%20%0AURL%3A%20%0A%0ADESCRIPTION%2FCOMMENTS%3A%0A%0A%5BHere%20you%20might%20describe%20the%20quality%20of%20the%20data%2C%20rate%20it%20using%20the%20census%27%20metrics%2C%20suggest%20changes%20to%20an%20existing%20dataset%2C%20etc.%5D"
-                     });
+                     row["datasets"].push(gridData).toString();
                  }
              });
              return row;
@@ -241,9 +209,7 @@ function mapInfo(data, tabletop) {
              var html = stateTemplate(row);
              $("#states").append(html);
          })
-
      .value();
-
      $('[data-toggle="tooltip"]').tooltip()
  }
 

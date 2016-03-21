@@ -104,6 +104,7 @@
     <script id="state-template" type="text/x-handlebars-template">
       <tr>
         <td> <a href="{{stateHref}}"> {{state}} </a> </td>
+        <td> {{state_score}} </td>
         {{#each this.datasets}}
         <td class="grade grade-{{grade}}">
           <a href="{{datasetHref}}">
@@ -116,6 +117,7 @@
     <script id="dataset-template" type="text/x-handlebars-template">
       <tr>
         <th>State</th>
+        <th>Score</th>
         {{#each this}}
         <th><span><a href="{{datatypeHref}}">{{datatype}}</a></span></th>
         {{/each}} </tr>
