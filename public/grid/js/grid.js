@@ -159,11 +159,19 @@ function mapInfo(data, tabletop) {
 
      setupDatatypes(allTypes);
 
+     /* Reverse the state abbreviations' keys and values. */
+     reversed = {};
+     for(var key in state_abbreviations){
+         reversed[state_abbreviations[key]] = key;
+     }
+     state_abbreviations = reversed;
+
      var rows = _.chain(rawData)
          .groupBy("State")
          .map(function(datasets, state) {
              var row = {
                  state: state,
+                 state_score: place_scores[state_abbreviations[state]] + "%",
                  state: datasets[0]["State"],
                  stateHref: URI().filename("datasets.html").search({
                      "state": state
@@ -201,9 +209,7 @@ function mapInfo(data, tabletop) {
              var html = stateTemplate(row);
              $("#states").append(html);
          })
-
      .value();
-
      $('[data-toggle="tooltip"]').tooltip()
  }
 
