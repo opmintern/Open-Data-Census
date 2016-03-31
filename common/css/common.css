@@ -122,3 +122,27 @@ ul.availability.icons li, i.fa {
     padding-right: 8px;
     padding-left: 3px;
  }
+
+h1.state-title a {
+    color: #fff;
+    text-decoration: none;
+}
+    h1.state-title:hover a {
+        text-decoration: underline;
+    }
+    h1.state-title:hover a:after {
+        content: '\00a0\1F517';
+    }
+
+ul.icons a:hover {
+    text-decoration: none;
+}
+
+.state-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+}
+.panel-default > .state-title-heading {
+    background-color: navy;
+}
