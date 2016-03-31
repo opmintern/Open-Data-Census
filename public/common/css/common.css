@@ -137,3 +137,12 @@ h1.state-title a {
 ul.icons a:hover {
     text-decoration: none;
 }
+
+.state-title {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: white;
+}
+.panel-default > .state-title-heading {
+    background-color: navy;
+}
