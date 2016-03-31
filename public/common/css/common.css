@@ -133,3 +133,7 @@ h1.state-title a {
     h1.state-title:hover a:after {
         content: '\00a0\1F517';
     }
+
+ul.icons a:hover {
+    text-decoration: none;
+}
